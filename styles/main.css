@@ -35,7 +35,8 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: "Hind", "Raleway", "sans-serif";
   color: var(--color-font);
-  /* margin-top: -2.5vh; */
+  display: flex;
+  flex-direction: column;
 }
 
 main {
@@ -81,15 +82,14 @@ picture img {
   width: 100%;
 }
 
-svg {
+/* svg {
   width: 200px;
-}
+} */
 
 /* temp fix to size about img */
 img[srcset] {
   width: 50%;
   height: auto;
-  margin: 2rem auto;
 }
 
 /* temporary fix to size svg images */
@@ -115,12 +115,11 @@ a[href]:hover {
   color: var(--color-accent);
 }
 
-a[href]:visited {
-  /* color: #f2bc8d; */
-}
+/* a[href]:visited {
+  color: #f2bc8d;
+} */
 
 a.button {
-  /* background-color: rgb(108, 165, 212); */
   padding: 2vw;
   border-radius: 5px;
   display: inline-block;
@@ -133,6 +132,57 @@ a.button:hover {
   background-color: #f2bc8d;
   border: 2px solid #f2bc8d;
   cursor: pointer;
+}
+
+header {
+  background-color: #000000;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  padding: 5px;
+}
+
+nav img {
+  width: 30px;
+  height: auto;
+}
+
+nav {
+  position: relative;
+  display: inline-block;
+  background-color: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropbtn {
+  /* background-color: red; */
+  margin: 15px;
+}
+
+.dropbtn img {
+  width: 20px;
+  height: auto;
+}
+
+.nav {
+  display: none;
+  position: absolute;
+  background-color: #517ea6;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.nav a {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+}
+
+nav:hover .nav {
+  display: block;
 }
 
 .footer {
@@ -149,34 +199,6 @@ main {
   max-width: fit-content;
 }
 
-header {
-  background-color: #000000;
-  position: fixed;
-  z-index: 2;
-  width: 100%;
-  padding: 5px;
-}
-.nav {
-  display: flex;
-  /* margin-bottom: 5vw; */
-  justify-content: space-between;
-  /* background-color: beige; */
-  margin-left: 25%;
-  margin-right: 25%;
-  align-items: center;
-  justify-content: space-around;
-}
-.navbox {
-  margin: 0.5vw;
-}
-
-.navimg {
-  height: 40px;
-  width: 40px;
-  min-width: 40px;
-  min-height: 40px;
-}
-
 main h1 {
   margin-top: 5vw;
 }
@@ -190,13 +212,16 @@ footer {
 }
 
 .herotitle {
-  text-align: center;
+  inset: 0;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: center;
   color: white;
   text-shadow: 2px 2px 8px #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
 }
 .herotitle h1 {
   font-size: 300%;
@@ -212,6 +237,7 @@ footer {
   background-size: cover;
   position: relative;
   filter: brightness(0.8);
+  margin-top: 50px;
 }
 
 .cards {
@@ -223,27 +249,43 @@ footer {
   min-width: 0;
   gap: 20px;
 }
-.cards p {
+
+.card p {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  line-height: 1;
+  padding: 30% 1rem 1rem;
+  background-color: rgb(0 0 0 / 60%);
+  transition: background-color 400ms ease-in-out;
+}
+/* .cards p {
   width: fit-content;
   padding: 0.5vw;
   text-justify: inter-word;
   margin: 0;
   gap: 1rem;
   min-width: 0;
-}
+} */
 
 .card {
   /* margin: 1vw; */
   /* outline: 2px solid rgb(132, 130, 130); */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 3px;
-  flex: 1 1 0;
-  min-width: 0;
+  position: relative;
+  color: #2c2525;
+  /* min-width: 0; */
 }
 
 .card:hover {
   transition: box-shadow 300ms ease;
   transform: scale(1.05);
+}
+
+.card:hover p {
+  color: transparent;
+  background-color: rgb(0 0 0 / 0%);
 }
 .card h2 {
   margin: 0;
@@ -264,4 +306,26 @@ footer {
 
 .hero h1 {
   font-size: clamp(3.5rem, 5vw + 1rem, 5rem);
+}
+
+@media (min-width: 401px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25%;
+    margin-right: 25%;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .navbox {
+    margin: 0.5vw;
+    width: 50px;
+  }
+
+  .navimg {
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
+  }
 }
