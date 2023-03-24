@@ -316,28 +316,6 @@ footer {
   font-family: "Playfair Display SC", serif;
 }
 
-@media (min-width: 401px) {
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 25%;
-    margin-right: 25%;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .navbox {
-    margin: 0.5vw;
-    width: 50px;
-  }
-
-  .navimg {
-    height: 40px;
-    width: 40px;
-    min-width: 40px;
-    min-height: 40px;
-  }
-}
-
 ul {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -361,4 +339,53 @@ ul {
 
 .panel .text-wrapper .button {
   background-color: #5ca1cc;
+}
+
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+ */
+
+@media (min-width: 401px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25%;
+    margin-right: 25%;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .navbox {
+    margin: 0.5vw;
+    width: 50px;
+  }
+
+  .navimg {
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .panel {
+    flex-direction: row;
+  }
+  .image-wrapper {
+    min-width: 200px;
+    width: 400px;
+  }
+
+  .left {
+    order: 2;
+  }
 }
