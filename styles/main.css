@@ -169,7 +169,9 @@ nav {
 .nav {
   display: none;
   position: absolute;
-  background-color: #517ea6;
+  margin-top: 300px;
+  margin-left: 130px;
+  background-color: rgb(0 0 0 / 50%);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -181,7 +183,7 @@ nav {
   display: block;
 }
 
-nav:hover .nav {
+.dropbtn:hover .nav {
   display: block;
 }
 
@@ -305,7 +307,13 @@ footer {
 }
 
 .hero h1 {
-  font-size: clamp(3.5rem, 5vw + 1rem, 5rem);
+  font-size: clamp(1.5rem, 5vw + 1rem, 5rem);
+  font-family: "Playfair Display SC", serif;
+}
+
+.hero p {
+  font-size: clamp(0.5rem, 0.5vw + 0.4rem, 4rem);
+  font-family: "Playfair Display SC", serif;
 }
 
 @media (min-width: 401px) {
@@ -328,4 +336,29 @@ footer {
     min-width: 40px;
     min-height: 40px;
   }
+}
+
+ul {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 2vw;
+  margin: 2vw;
+}
+.image-wrapper {
+  order: -1;
+}
+
+.panel .text-wrapper .button {
+  background-color: #5ca1cc;
 }
