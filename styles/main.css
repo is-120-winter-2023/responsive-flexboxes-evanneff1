@@ -93,9 +93,6 @@ img[srcset] {
 }
 
 /* temporary fix to size svg images */
-img[src$="svg"] {
-  width: 200px;
-}
 
 /************ add your CSS here **************** */
 
@@ -142,48 +139,49 @@ header {
   padding: 5px;
 }
 
-nav img {
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+nav label img {
   width: 30px;
   height: auto;
-}
-
-nav {
+  z-index: 100;
   position: relative;
-  display: inline-block;
-  background-color: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+    brightness(118%) contrast(119%);
+}
+.submenu ul {
+  text-decoration: none;
+  list-style: none;
+  text-align: center;
+  list-style-position: outside;
+  list-style-type: none;
 }
 
-.dropbtn {
-  /* background-color: red; */
-  margin: 15px;
-}
-
-.dropbtn img {
-  width: 20px;
-  height: auto;
-}
-
-.nav {
+input,
+ul.submenu {
   display: none;
-  position: absolute;
-  margin-top: 300px;
-  margin-left: 130px;
-  background-color: rgb(0 0 0 / 50%);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+}
+
+/*position the label*/
+label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+/*show the submenu when input is checked*/
+input:checked ~ ul.submenu {
+  display: block;
 }
 
 .nav a {
   color: black;
   padding: 12px 16px;
-  display: block;
-}
-
-.dropbtn:hover .nav {
   display: block;
 }
 
@@ -239,7 +237,6 @@ footer {
   background-size: cover;
   position: relative;
   filter: brightness(0.8);
-  margin-top: 50px;
 }
 
 .card:hover {
@@ -276,17 +273,6 @@ footer {
 .hero p {
   font-size: clamp(0.5rem, 0.5vw + 0.4rem, 4rem);
   font-family: "Playfair Display SC", serif;
-}
-
-ul {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
 }
 
 .panel {
@@ -352,26 +338,23 @@ ul {
  */
 
 @media (min-width: 401px) and (max-width: 800px) {
-  .nav {
+  input {
+    display: none;
+  }
+
+  nav ul li {
+    list-style: none;
+    padding: 0 1vw 0 1vw;
+  }
+
+  label img {
+    display: none;
+  }
+  ul.submenu {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    margin-left: 25%;
-    margin-right: 25%;
-    align-items: center;
-    justify-content: space-around;
   }
-  .navbox {
-    margin: 0.5vw;
-    width: 50px;
-  }
-
-  .navimg {
-    height: 40px;
-    width: 40px;
-    min-width: 40px;
-    min-height: 40px;
-  }
-
   .panel {
     flex-direction: row;
   }
@@ -430,6 +413,24 @@ ul {
     margin-top: 5vh;
     min-width: 0;
     gap: 20px;
+  }
+
+  input {
+    display: none;
+  }
+
+  nav ul li {
+    list-style: none;
+    padding: 0 1vw 0 1vw;
+  }
+
+  label img {
+    display: none;
+  }
+  ul.submenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .card p {
